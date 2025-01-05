@@ -1,0 +1,93 @@
+
+1. **Array**: Fixed size, strongly typed
+   - A `int[]` array is created and various methods like `Sort()`, `Reverse()`, `IndexOf()` and `Find()` are demonstrated.
+   - Key features:
+     - Fixed size
+     - Strongly typed
+     - Examples: `Array.Sort()`, `Array.Reverse()`
+
+2. **ArrayList**: Dynamic size, not strongly typed
+   - Demonstrates the usage of `ArrayList` which allows any data type to be added.
+   - Key features:
+     - Dynamic size
+     - Can store objects of any type
+     - Examples: `Add()`, `Insert()`, `Remove()`
+
+3. **List<T>**: Dynamic size, strongly typed
+   - `List<T>` demonstrates a strongly typed, dynamically sized collection.
+   - Key features:
+     - Dynamic size
+     - Strongly typed
+     - Examples: `Add()`, `AddRange()`, `Insert()`, `Remove()`
+
+4. **Hashtable**: Key-value pairs, not strongly typed
+   - Demonstrates the usage of a `Hashtable` to store key-value pairs.
+   - Key features:
+     - Stores data as key-value pairs
+     - Can store objects of any type
+     - Examples: `Add()`, `Remove()`, `ContainsKey()`
+
+5. **Dictionary<TKey, TValue>**: Strongly typed key-value pairs
+   - A `Dictionary<TKey, TValue>` stores key-value pairs with strong type checking.
+   - Key features:
+     - Strongly typed key-value pairs
+     - Offers fast lookup
+     - Examples: `Add()`, `ContainsKey()`, `TryGetValue()`
+
+6. **Queue**: FIFO collection, not strongly typed
+   - Demonstrates a `Queue` for First-In-First-Out collection operations.
+   - Key features:
+     - FIFO (First-In-First-Out) order
+     - Can store any type of object
+     - Examples: `Enqueue()`, `Dequeue()`, `Peek()`
+
+7. **Queue<T>**: FIFO collection, strongly typed
+   - A strongly typed version of `Queue<T>` that ensures type safety.
+   - Key features:
+     - FIFO order
+     - Strongly typed
+     - Examples: `Enqueue()`, `Dequeue()`, `Peek()`
+
+8. **Stack**: LIFO collection, not strongly typed
+   - Demonstrates a `Stack` for Last-In-First-Out collection operations.
+   - Key features:
+     - LIFO (Last-In-First-Out) order
+     - Can store any type of object
+     - Examples: `Push()`, `Pop()`, `Peek()`
+
+9. **Stack<T>**: LIFO collection, strongly typed
+   - A strongly typed version of `Stack<T>` that ensures type safety.
+   - Key features:
+     - LIFO order
+     - Strongly typed
+     - Examples: `Push()`, `Pop()`, `Peek()`
+
+10. **LinkedList<T>**: Doubly linked list, strongly typed
+    - Demonstrates a `LinkedList<T>`, a doubly linked list structure.
+    - Key features:
+      - Doubly linked nodes
+      - Strongly typed
+      - Examples: `AddLast()`, `AddFirst()`, `Find()`, `Remove()`
+
+11. **HashSet<T>**: Unique elements, unordered, strongly typed
+    - A `HashSet<T>` ensures uniqueness and unordered collection of elements.
+    - Key features:
+      - Unique elements
+      - Unordered
+      - Strongly typed
+      - Examples: `Add()`, `Remove()`, `Contains()`
+
+12. **SortedList**: Non-generic key-value pair collection, sorted by keys
+    - A `SortedList` stores key-value pairs sorted by keys.
+    - Key features:
+      - Sorted by key
+      - Can store any type of object
+      - Examples: `Add()`, `Remove()`, `ContainsKey()`
+
+13. **SortedSet<T>**: Unique elements, sorted, strongly typed
+    - A `SortedSet<T>` stores unique elements in a sorted order.
+    - Key features:
+      - Unique elements
+      - Sorted
+      - Strongly typed
+      - Examples: `Add()`, `Remove()`, `Contains()`

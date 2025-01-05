@@ -1,0 +1,24 @@
+# to make an extension method to any type, make new class and put your method(s)
+  in it, -first method parameter must be refered to with *this*
+  - class must be static
+  - extension method must be static
+
+=> Extension method deffers from normal instance method:
+
+    public static class NumberHelpers {
+        public static bool IsBetween(int value, int min, int max)
+        {
+            return value >= min && value <= max;
+        }}
+        usage:
+            NumberHelpers.IsBetween(percentage, 0, 100)
+
+    public static class NumberExtensions {
+        public static bool IsBetween(this int value, int min, int max)
+        {
+            return value >= min && value <= max;
+        }}
+        usage:
+            percentage.IsBetween(0, 100)
+
+__________________________________________________
