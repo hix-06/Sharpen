@@ -1,0 +1,273 @@
+# Desin Patterns in .NET Core
+
+## 1. Creational Patterns
+Creational patterns deal with object creation mechanisms, optimizing them for specific scenarios. They ensure objects are created in a manner suitable to the situation.
+
+### **Singleton Pattern**
+- **Definition:** Ensures a class has only one instance and provides a global point of access to it.
+- **Usage in .NET Core:** Used for shared resources such as logging, configuration settings, or database connections.
+- **Example:**
+  ```csharp
+  public class Singleton
+  {
+      private static Singleton _instance;
+      private static readonly object _lock = new object();
+
+      private Singleton() { }
+
+      public static Singleton Instance
+      {
+          get
+          {
+              lock (_lock)
+              {
+                  if (_instance == null)
+                      _instance = new Singleton();
+              }
+              return _instance;
+          }
+      }
+  }
+  ```
+
+### **Factory Method Pattern**
+- **Definition:** Defines an interface for creating objects but lets subclasses alter the type of objects that will be created.
+- **Usage in .NET Core:** Common in dependency injection and service factories.
+- **Example:**
+  ```csharp
+  public interface IProduct
+  {
+      string GetName();
+  }
+
+  public class ProductA : IProduct
+  {
+      public string GetName() => "ProductA";
+  }
+
+  public class ProductB : IProduct
+  {
+      public string GetName() => "ProductB";
+  }
+
+  public class Factory
+  {
+      public static IProduct CreateProduct(string type) => type switch
+      {
+          "A" => new ProductA(),
+          "B" => new ProductB(),
+          _ => throw new ArgumentException("Invalid type")
+      };
+  }
+  ```
+
+### **Abstract Factory Pattern**
+- **Definition:** Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+- **Usage in .NET Core:** Used in systems where you need to switch between different sets of objects.
+- **Example:**
+  ```csharp
+  public interface IWidgetFactory
+  {
+      IButton CreateButton();
+      ICheckbox CreateCheckbox();
+  }
+
+  public class WindowsWidgetFactory : IWidgetFactory
+  {
+      public IButton CreateButton() => new WindowsButton();
+      public ICheckbox CreateCheckbox() => new WindowsCheckbox();
+  }
+  ```
+
+### **Builder Pattern**
+- **Definition:** Separates the construction of a complex object from its representation so that the same construction process can create different representations.
+- **Usage in .NET Core:** Building HTTP requests, constructing complex configurations.
+- **Example:**
+  ```csharp
+  public class HttpRequestBuilder
+  {
+      private string _url;
+      private string _method;
+
+      public HttpRequestBuilder SetUrl(string url)
+      {
+          _url = url;
+          return this;
+      }
+
+      public HttpRequestBuilder SetMethod(string method)
+      {
+          _method = method;
+          return this;
+      }
+
+      public HttpRequest Build() => new HttpRequest(_url, _method);
+  }
+  ```
+
+### **Prototype Pattern**
+- **Definition:** Creates new objects by copying an existing object, known as the prototype.
+- **Usage in .NET Core:** Duplicating objects without impacting the original.
+- **Example:**
+  ```csharp
+  public class Prototype
+  {
+      public string Name { get; set; }
+
+      public Prototype Clone() => (Prototype) this.MemberwiseClone();
+  }
+  ```
+
+## 2. Structural Patterns
+Structural patterns deal with object composition, defining relationships between components to form larger structures.
+
+### **Adapter Pattern**
+- **Definition:** Converts the interface of a class into another interface clients expect.
+- **Usage in .NET Core:** Integrating third-party libraries or legacy systems.
+- **Example:**
+  ```csharp
+  public interface ITarget
+  {
+      string GetRequest();
+  }
+
+  public class Adaptee
+  {
+      public string SpecificRequest() => "Specific request";
+  }
+
+  public class Adapter : ITarget
+  {
+      private readonly Adaptee _adaptee;
+
+      public Adapter(Adaptee adaptee)
+      {
+          _adaptee = adaptee;
+      }
+
+      public string GetRequest() => _adaptee.SpecificRequest();
+  }
+  ```
+
+### **Decorator Pattern**
+- **Definition:** Dynamically adds new responsibilities to an object.
+- **Usage in .NET Core:** Extending functionality of services or middleware.
+- **Example:**
+  ```csharp
+  public interface INotifier
+  {
+      void Send(string message);
+  }
+
+  public class EmailNotifier : INotifier
+  {
+      public void Send(string message) => Console.WriteLine($"Email: {message}");
+  }
+
+  public class SmsDecorator : INotifier
+  {
+      private readonly INotifier _notifier;
+
+      public SmsDecorator(INotifier notifier)
+      {
+          _notifier = notifier;
+      }
+
+      public void Send(string message)
+      {
+          _notifier.Send(message);
+          Console.WriteLine($"SMS: {message}");
+      }
+  }
+  ```
+
+## 3. Behavioral Patterns
+Behavioral patterns focus on interaction and communication between objects.
+
+### **Observer Pattern**
+- **Definition:** Establishes a dependency between objects so that when one object changes state, all dependents are notified.
+- **Usage in .NET Core:** Implementing event systems, pub-sub mechanisms.
+- **Example:**
+  ```csharp
+  public class Subject
+  {
+      private readonly List<IObserver> _observers = new();
+
+      public void Attach(IObserver observer) => _observers.Add(observer);
+      public void Notify() => _observers.ForEach(o => o.Update());
+  }
+
+  public interface IObserver
+  {
+      void Update();
+  }
+  ```
+
+### **Strategy Pattern**
+- **Definition:** Defines a family of algorithms, encapsulates them, and makes them interchangeable.
+- **Usage in .NET Core:** Swapping implementations of services or algorithms at runtime.
+- **Example:**
+  ```csharp
+  public interface ICompression
+  {
+      void Compress(string file);
+  }
+
+  public class ZipCompression : ICompression
+  {
+      public void Compress(string file) => Console.WriteLine("ZIP compression");
+  }
+
+  public class CompressionContext
+  {
+      private ICompression _strategy;
+
+      public void SetStrategy(ICompression strategy) => _strategy = strategy;
+      public void Execute(string file) => _strategy.Compress(file);
+  }
+  ```
+
+## 4. Architectural Patterns
+Architectural patterns provide high-level strategies for structuring systems.
+
+### **MVC (Model-View-Controller)**
+- **Definition:** Separates an application into three components: Model, View, and Controller.
+- **Usage in .NET Core:** ASP.NET Core MVC framework.
+- **Example:**
+  - **Model:** Represents the data and business logic.
+  - **View:** Represents the UI.
+  - **Controller:** Handles user input and interacts with the Model.
+
+### **MVVM (Model-View-ViewModel)**
+- **Definition:** Enhances MVC by introducing the ViewModel to facilitate data binding.
+- **Usage in .NET Core:** Common in WPF and Blazor.
+
+### **Dependency Injection**
+- **Definition:** Provides dependencies from an external source rather than creating them inside the class.
+- **Usage in .NET Core:** Built-in DI container for service registration and resolution.
+- **Example:**
+  ```csharp
+  services.AddScoped<IService, Service>();
+  ```
+
+### **Repository Pattern**
+- **Definition:** Encapsulates data access logic to abstract the underlying data source.
+- **Usage in .NET Core:** Used in EF Core to interact with databases.
+- **Example:**
+  ```csharp
+  public interface IRepository<T>
+  {
+      IEnumerable<T> GetAll();
+      T GetById(int id);
+  }
+
+  public class Repository<T> : IRepository<T>
+  {
+      private readonly DbContext _context;
+      public Repository(DbContext context) => _context = context;
+
+      public IEnumerable<T> GetAll() => _context.Set<T>().ToList();
+      public T GetById(int id) => _context.Set<T>().Find(id);
+  }
+  ```
+
