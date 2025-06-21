@@ -1,0 +1,14 @@
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\bin\Debug\net9.0\DelegatesConsoleApp.exe
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\bin\Debug\net9.0\DelegatesConsoleApp.deps.json
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\bin\Debug\net9.0\DelegatesConsoleApp.runtimeconfig.json
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\bin\Debug\net9.0\DelegatesConsoleApp.dll
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\bin\Debug\net9.0\DelegatesConsoleApp.pdb
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\DelegatesConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\DelegatesConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\DelegatesConsoleApp.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\DelegatesConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\DelegatesConsoleApp.dll
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\refint\DelegatesConsoleApp.dll
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\DelegatesConsoleApp.pdb
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\DelegatesConsoleApp.genruntimeconfig.cache
+C:\Users\Ahmed\Desktop\projects\WarmTheSharp\DelegatesConsoleApp\obj\Debug\net9.0\ref\DelegatesConsoleApp.dll
